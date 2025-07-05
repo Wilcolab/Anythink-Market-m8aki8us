@@ -1,0 +1,47 @@
+CHAIN PROMPT: Create a JavaScript Functions for String Case Conversion
+
+STEP 1: Create a Basic Validation Function
+Create a JavaScript function called `validateStringInput` that:
+- Takes a parameter called `input`
+- Checks if the input is null, undefined, or not a string
+- Returns an object with properties: `isValid` (boolean) and `message` (string)
+- Should return `{isValid: true, message: ""}` for valid strings
+- Should return appropriate error messages for invalid inputs
+
+Example usage:
+```javascript
+console.log(validateStringInput("hello")); // {isValid: true, message: ""}
+console.log(validateStringInput(null));    // {isValid: false, message: "Input cannot be null"}
+```
+
+STEP 2: Create a Word Splitting Function
+Create a JavaScript function called `splitIntoWords` that:
+- Takes a validated string as input (use the function from Step 1 first)
+- Splits the string into individual words
+- Handles camelCase, PascalCase, spaces, underscores, and hyphens
+- Returns an array of lowercase words
+- Filters out empty strings
+
+The function should handle these conversions:
+- "firstName" → ["first", "name"]
+- "user_profile" → ["user", "profile"]
+- "SCREEN NAME" → ["screen", "name"]
+
+Use the `validateStringInput` function from Step 1 before processing.
+
+STEP 3: Create the Main Conversion Function
+Create a JavaScript function called `toKebabCase` that:
+- Uses both functions from Steps 1 and 2
+- Takes the word array from `splitIntoWords` and joins with hyphens
+- Handles edge cases like already kebab-case strings
+- Returns the final kebab-case string
+
+The function should call:
+1. `validateStringInput` to check the input
+2. `splitIntoWords` to get the word array
+3. Join the words with hyphens to create kebab-case
+
+Test with these examples:
+- "firstName" → "first-name"
+- "user_profile" → "user-profile"
+- "API_KEY_Value" → "api-key-value"
